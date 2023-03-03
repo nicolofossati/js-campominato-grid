@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+}
+
+header{
+    height: 70px;
+    width: 100%;
+}
+
+main{
+    height: calc(100vh - 120px);
+    background-color: #6EFED3;
+}
+
+footer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#footer-container{
+    padding: 0 20px;
+}
+
+#header-container{
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.left-header, .right-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-header img{
+    padding-right: 20px;
+}
