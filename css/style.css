@@ -44,3 +44,37 @@ footer{
 .left-header img{
     padding-right: 20px;
 }
+
+
+#play{
+    width: 90px;
+}
+
+
+#main-container{
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.square{
+    position: relative;
+    width: calc(500px / 10);
+    height: calc(500px / 10);
+    border: 1px solid black;
+}
+
+.onclick{
+    background-color: brown;
+}
