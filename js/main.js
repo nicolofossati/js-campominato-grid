@@ -20,6 +20,7 @@ playButtonDom.addEventListener('click', function(){
     
         squareDom.addEventListener('click', function(){
             this.classList.add('onclick');
+            console.log(i);
             spanDom.innerHTML = "";
         });
     
