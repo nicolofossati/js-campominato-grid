@@ -2,11 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
-
-body{
-}
-
 header{
     height: 70px;
     width: 100%;
@@ -24,15 +21,11 @@ footer{
 }
 
 #footer-container{
-    width: 65%;
-    margin: auto;
     padding: 0 20px;
 }
 
 #header-container{
-    width: 55%;
     height: 100%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
@@ -84,4 +77,14 @@ footer{
 
 .onclick{
     background-color: rgb(65, 154, 255);
+}
+
+.square-hard{
+    width: calc(500px / 9);
+    height: calc(500px / 9);    
+}
+
+.square-crazy{
+    width: calc(500px / 7);
+    height: calc(500px / 7);    
 }
