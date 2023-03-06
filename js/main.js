@@ -1,11 +1,29 @@
 const containerDom = document.querySelector('#main-container'); 
 const playButtonDom = document.querySelector('#play'); 
-const difficultyDom = document.querySelector('#difficulty'); 
+const difficultyDom = document.querySelector('#difficulty');
+
+let bombs_array= [];
+let cells_array = [];
+
 
 playButtonDom.addEventListener('click', function(){
+
+    
+    bombs_array = [];
+
     let levelValue = difficultyDom.value;
     if(levelValue == "easy"){
         containerDom.innerHTML = "";
+
+        for(let i=0; i<100; i++){
+            cells_array[i] = i+1; 
+        }
+        for(let i=0;i<16 ;i++){
+            random_test(cells_array, 100);
+        }
+        console.log(`Stampa dopo creazione cells-array EASY: ${bombs_array}`);
+        
+        
         for(let i=1; i<101; i++){
             const squareDom = document.createElement('div');
             squareDom.classList.add('square');
@@ -28,6 +46,15 @@ playButtonDom.addEventListener('click', function(){
         }
     } else if(levelValue == "hard"){
         containerDom.innerHTML = "";
+
+        for(let i=0; i<81; i++){
+            cells_array[i] = i+1; 
+        }
+        for(let i=0;i<16 ;i++){
+            random_test(cells_array, 81);
+        }
+        console.log(`Stampa dopo creazione cells-array HARD: ${bombs_array}`);
+
         for(let i=1; i<82; i++){
             const squareDom = document.createElement('div');
             squareDom.classList.add('square');
@@ -38,8 +65,12 @@ playButtonDom.addEventListener('click', function(){
             spanDom.classList.add('center');
         
             squareDom.addEventListener('click', function(){
-                this.classList.toggle('onclick');
                 console.log(i);
+                if(bombs_array.includes(i)){
+                    this.classList.toggle('onclick_bomb');                    
+                } else {
+                    this.classList.toggle('onclick_correct');
+                }
             });
         
             containerDom.append(squareDom);
@@ -47,6 +78,15 @@ playButtonDom.addEventListener('click', function(){
         }
     } else if(levelValue == "crazy"){
         containerDom.innerHTML = "";
+
+        for(let i=0; i<49; i++){
+            cells_array[i] = i+1; 
+        }
+        for(let i=0;i<16 ;i++){
+            random_test(cells_array, 49);
+        }
+        console.log(`Stampa dopo creazione cells-array CRAZY: ${bombs_array}`);
+
         for(let i=1; i<50; i++){
             const squareDom = document.createElement('div');
             squareDom.classList.add('square');
@@ -57,41 +97,39 @@ playButtonDom.addEventListener('click', function(){
             spanDom.classList.add('center');
         
             squareDom.addEventListener('click', function(){
-                this.classList.toggle('onclick');
                 console.log(i);
+                if(bombs_array.includes(i)){
+                    this.classList.toggle('onclick_bomb');                    
+                } else {
+                    this.classList.toggle('onclick_correct');
+                }
             });
         
             containerDom.append(squareDom);
             squareDom.append(spanDom);
         }
     } else {
-        
+        console.log("Qui non devi finirci");
     }
+
+     
+
 });
 
 
 //test func random
 
-const bombs_array= [];
-const cells_array = [];
 
-
-for(let i=0; i<100; i++){
-    cells_array[i] = i+1; 
-} 
-for(let i=0;i<16 ;i++){
-    random_test(cells_array);
-}
 
 console.log(cells_array);
 console.log(bombs_array);
 
-function random_test(array){ // cells_array
+function random_test(array, a_length){ // cells_array
     let extract;
-    extract = random_inclusive(1, array.length);
+    extract = random_inclusive(1, a_length);
     if(bombs_array.includes(extract)){
         while(bombs_array.includes(extract)){
-            extract = random_inclusive(1, array.length);
+            extract = random_inclusive(1, a_length);
         }
         if(!bombs_array.includes(extract)){
             bombs_array[bombs_array.length] = extract;
