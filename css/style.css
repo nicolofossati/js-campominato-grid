@@ -75,8 +75,12 @@ footer{
     border: 1px solid black;
 }
 
-.onclick{
+.onclick_correct{
     background-color: rgb(65, 154, 255);
+}
+
+.onclick_bomb{
+    background-color: rgb(255, 65, 65);
 }
 
 .square-hard{

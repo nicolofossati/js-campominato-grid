@@ -15,8 +15,12 @@ playButtonDom.addEventListener('click', function(){
             spanDom.classList.add('center');
         
             squareDom.addEventListener('click', function(){
-                this.classList.toggle('onclick');
                 console.log(i);
+                if(bombs_array.includes(i)){
+                    this.classList.toggle('onclick_bomb');                    
+                } else {
+                    this.classList.toggle('onclick_correct');
+                }
             });
         
             containerDom.append(squareDom);
@@ -68,30 +72,32 @@ playButtonDom.addEventListener('click', function(){
 
 //test func random
 
-const empty_array= [];
-const array_100 = []
+const bombs_array= [];
+const cells_array = [];
+
+
 for(let i=0; i<100; i++){
-    array_100[i] = i+1; 
+    cells_array[i] = i+1; 
 } 
 for(let i=0;i<16 ;i++){
-    random_test(array_100);
+    random_test(cells_array);
 }
 
-console.log(array_100);
-console.log(empty_array);
+console.log(cells_array);
+console.log(bombs_array);
 
-function random_test(array){ // array_100
+function random_test(array){ // cells_array
     let extract;
     extract = random_inclusive(1, array.length);
-    if(empty_array.includes(extract)){
-        while(empty_array.includes(extract)){
+    if(bombs_array.includes(extract)){
+        while(bombs_array.includes(extract)){
             extract = random_inclusive(1, array.length);
         }
-        if(!empty_array.includes(extract)){
-            empty_array[empty_array.length] = extract;
+        if(!bombs_array.includes(extract)){
+            bombs_array[bombs_array.length] = extract;
         }
     } else {
-        empty_array[empty_array.length] = extract; //empy_array[0] = 2
+        bombs_array[bombs_array.length] = extract; //empy_array[0] = 2
     }
 }
 
