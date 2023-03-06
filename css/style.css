@@ -16,7 +16,8 @@ main{
 
 footer{
     height: 50px;
-    display: flex;
+    
+    y: flex;
     align-items: center;
 }
 
@@ -91,4 +92,15 @@ footer{
 .square-crazy{
     width: calc(500px / 7);
     height: calc(500px / 7);    
+}
+
+
+#score{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 60px;
+    font-size: 30px;
+    font-weight: 900;
 }

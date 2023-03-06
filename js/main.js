@@ -1,14 +1,16 @@
 const containerDom = document.querySelector('#main-container'); 
 const playButtonDom = document.querySelector('#play'); 
 const difficultyDom = document.querySelector('#difficulty');
+const scoreDom = document.querySelector('#score span');
 
 let bombs_array= [];
 let cells_array = [];
+let score = 0;
 
 
 playButtonDom.addEventListener('click', function(){
-
     
+    scoreDom.innerHTML = "PUNTEGGIO: 0";
     bombs_array = [];
 
     let levelValue = difficultyDom.value;
@@ -35,9 +37,12 @@ playButtonDom.addEventListener('click', function(){
             squareDom.addEventListener('click', function(){
                 console.log(i);
                 if(bombs_array.includes(i)){
-                    this.classList.toggle('onclick_bomb');                    
+                    this.classList.toggle('onclick_bomb');
+                    scoreDom.innerHTML = `PUNTEGGIO: ${score}, HAI PERSO!`;
                 } else {
                     this.classList.toggle('onclick_correct');
+                    score++;
+                    scoreDom.innerHTML = `PUNTEGGIO: ${score}`;
                 }
             });
         
@@ -67,9 +72,12 @@ playButtonDom.addEventListener('click', function(){
             squareDom.addEventListener('click', function(){
                 console.log(i);
                 if(bombs_array.includes(i)){
-                    this.classList.toggle('onclick_bomb');                    
+                    this.classList.toggle('onclick_bomb');
+                    scoreDom.innerHTML = `PUNTEGGIO: ${score}, HAI PERSO!`;
                 } else {
                     this.classList.toggle('onclick_correct');
+                    score++;
+                    scoreDom.innerHTML = `PUNTEGGIO: ${score}`;
                 }
             });
         
@@ -99,9 +107,12 @@ playButtonDom.addEventListener('click', function(){
             squareDom.addEventListener('click', function(){
                 console.log(i);
                 if(bombs_array.includes(i)){
-                    this.classList.toggle('onclick_bomb');                    
+                    this.classList.toggle('onclick_bomb');
+                    scoreDom.innerHTML = `PUNTEGGIO: ${score} HAI PERSO!`;
                 } else {
                     this.classList.toggle('onclick_correct');
+                    score++;
+                    scoreDom.innerHTML = `PUNTEGGIO: ${score}`;
                 }
             });
         
