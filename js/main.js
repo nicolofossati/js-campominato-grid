@@ -66,6 +66,39 @@ playButtonDom.addEventListener('click', function(){
 });
 
 
+//test func random
+
+const empty_array= [];
+const array_100 = []
+for(let i=0; i<100; i++){
+    array_100[i] = i+1; 
+} 
+for(let i=0;i<16 ;i++){
+    random_test(array_100);
+}
+
+console.log(array_100);
+console.log(empty_array);
+
+function random_test(array){ // array_100
+    let extract;
+    extract = random_inclusive(1, array.length);
+    if(empty_array.includes(extract)){
+        while(empty_array.includes(extract)){
+            extract = random_inclusive(1, array.length);
+        }
+        if(!empty_array.includes(extract)){
+            empty_array[empty_array.length] = extract;
+        }
+    } else {
+        empty_array[empty_array.length] = extract; //empy_array[0] = 2
+    }
+}
+
+function random_inclusive(min, max){
+    return Math.floor(Math.random() * (max - min +1) + min);
+}
+
 /*
 Consegna
 Copiamo la griglia fatta ieri nella nuova repo e aggiungiamo la logica del gioco (attenzione: non bisogna copiare tutta 
